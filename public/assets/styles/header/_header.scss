@@ -1,0 +1,93 @@
+header {
+  z-index: 20;
+  position: fixed;
+  width: 100%;
+  & nav {
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    margin: 8px auto;
+    & #nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-around;
+      & ul {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-around;
+        & li {
+          & i {
+            display: none;
+          }
+        }
+      }
+    }
+    & i#toggle-nav {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  header {
+    & nav {
+      margin: 8px;
+    }
+  }
+}
+
+// INFO: partie tablette
+@media only screen and (max-width: 600px) {
+  header {
+    & nav {
+      & #nav {
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        padding: 8px;
+        transform: translate(100vw, -50%);
+        transition: transform 0.5s;
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        max-width: 200px;
+        min-height: 50vh;
+        border-radius: 8px;
+        height: calc(var(--vh, 1vh) * 10);
+        & ul {
+          flex-direction: column;
+          width: fit-content;
+          & li {
+            display: flex;
+            align-items: center;
+            & i {
+              display: block;
+              margin-right: 1rem;
+            }
+            & a {
+              display: flex;
+              width: fit-content;
+              padding: 8px 0;
+            }
+          }
+        }
+        & i[data-theme-toggler] {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+        }
+      }
+      & #nav.mobile {
+        transform: translate(0, -50%);
+      }
+      & i#toggle-nav {
+        display: block;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+// INFO: partie mobile
+@media only screen and (max-width: 400px) {
+}

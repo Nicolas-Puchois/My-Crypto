@@ -1,0 +1,118 @@
+#carrousel {
+  padding: 0 1rem;
+  @media only screen and (max-width: 600px) {
+    padding: 0 0;
+  }
+}
+
+#carrousel-container {
+  position: relative;
+  margin: 2rem auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+  @media only screen and (max-width: 600px) {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  background: #fff;
+  height: 40vh;
+  min-height: 300px;
+}
+
+.carrousel {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carrousel-slide {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.carrousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+#carrousel-control {
+  position: absolute;
+  bottom: 0.5rem;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  //   display: flex;
+  //   width: 100%;
+  //   justify-content: center;
+  //   gap: 1rem;
+  & button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+  }
+}
+
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  & .close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 40px;
+    color: #f1f1f1;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+#lightbox-img {
+  width: 80%;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Ajustements responsive */
+@media (max-width: 600px) {
+  .carousel-caption {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+  }
+  .carousel-controls button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  #lightbox-img {
+    width: 90%;
+  }
+}
