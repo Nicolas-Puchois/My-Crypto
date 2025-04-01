@@ -109,8 +109,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url("/assets/image/Background_with_octogone_.png") no-repeat
-      center center / cover;
+    background: url("/image/Background_with_octogone_.png") no-repeat center
+      center / cover;
     & h1 {
       backdrop-filter: blur(10px);
       background: rgba(222, 216, 216, 0.5);
