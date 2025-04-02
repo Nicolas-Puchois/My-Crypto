@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link
+      rel="icon"
+      href="<%= process.env.SITE_URL %>/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="<%= process.env.SITE_URL %>/assets/styles/style.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta type="keywords" content="crypto, investissement, portefeuille" />
+    <!-- Partage Réseaux -->
+    <meta property="og:url" content="<%= process.env.SITE_URL %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="My Crypto" />
+    <meta
+      property="og:image"
+      content="<%= process.env.SITE_URL %>/assets/image/Background_with_octogone_.png"
+    />
+    <meta
+      name="description"
+      content="Site de suivi de portefeuille de cryptomonaies avec gestion IA alertes en temps réel"
+    />
+
+    <title>
+      <%= typeof title !== 'undefined' ? 'My Crypto | ' + title : 'My Crypto' %>
+    </title>
+    <script
+      type="module"
+      src="<%= process.env.SITE_URL %>/assets/js/main.js"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div id="logo">
+          <a href="/"><i class="fas fa-helicopter"></i></a>
+        </div>
+        <div id="nav">
+          <ul>
+            <li><i class="fas fa-helicopter"></i><a href="/"> Home</a></li>
+            <li>
+              <i class="fab fa-bitcoin"></i><a href="#projet">Le projet</a>
+            </li>
+            <li>
+              <i class="fab fa-ethereum"></i><a href="#crypto">Nos Cryptos</a>
+            </li>
+            <li><i class="fab fa-contao"></i><a href="/contact">Contact</a></li>
+            <li>
+              <i class="fab fa-contao"></i><a href="#carrousel">Carrousel</a>
+            </li>
+          </ul>
+          <i class="fas fa-moon" data-theme-toggler></i>
+        </div>
+        <i id="toggle-nav" class="fas fa-plane"></i>
+      </nav>
+    </header>
+  </body>
+</html>

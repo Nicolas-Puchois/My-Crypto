@@ -48,7 +48,7 @@ a {
   position: relative;
   text-decoration: none;
 }
-a:not(#logo a):after {
+a:not(#logo a, #reseaux a, #reseaux-mobile a):after {
   content: "";
   position: absolute;
   transform: scaleX(0);
@@ -59,10 +59,10 @@ a:not(#logo a):after {
   bottom: 0;
   left: 0;
 }
-a:not(#logo a):hover {
+a:not(#logo a, #reseaux a, #reseaux-mobile a):hover {
   color: blue;
 }
-a:not(#logo a):hover:after {
+a:not(#logo a, #reseaux a, #reseaux-mobile a):hover:after {
   transform: scaleX(1);
 }
 
@@ -96,7 +96,7 @@ button.info:hover {
   font-size: 2rem;
   cursor: pointer;
   display: none;
-  // mix-blend-mode: exclusion;
+  mix-blend-mode: exclusion;
 }
 
 main {
@@ -255,8 +255,8 @@ html[data-theme="dark"] {
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   #up-arrow {
-    bottom: 4rem;
+    bottom: 3rem;
   }
 }

@@ -1,117 +1,50 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <link
-      rel="shortcut icon"
-      href="/public/favicon/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="/assets/styles/style.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta type="keywords" content="crypto, investissement, portefeuille" />
-    <!-- Partage Réseaux -->
-    <meta property="og:url" content="http://localhost:5500" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="My Crypto" />
-    <meta
-      property="og:image"
-      content="http://localhost:5500/assets/image/Background_with_octogone_.png"
-    />
-    <meta
-      property="og:description"
-      content="Site de suivi de portefeuille de cryptomonaies avec gestion IA alertes en temps réel"
-    />
-
-    <title>My Crypto</title>
-    <script type="module" src="/assets/js/main.js"></script>
-  </head>
-
-  <body>
-    <header>
-      <nav>
-        <div id="logo">
-          <a href="/"><i class="fas fa-helicopter"></i></a>
-        </div>
-        <div id="nav">
-          <ul>
-            <li><i class="fas fa-helicopter"></i><a href="/"> Home</a></li>
-            <li>
-              <i class="fab fa-bitcoin"></i><a href="#projet">Le projet</a>
-            </li>
-            <li>
-              <i class="fab fa-ethereum"></i><a href="#crypto">Nos Cryptos</a>
-            </li>
-            <li><i class="fab fa-contao"></i><a href="#contact">Contact</a></li>
-            <li>
-              <i class="fab fa-contao"></i><a href="#carrousel">Carrousel</a>
-            </li>
-          </ul>
-          <i class="fas fa-moon" data-theme-toggler></i>
-        </div>
-        <i id="toggle-nav" class="fas fa-plane"></i>
-      </nav>
-    </header>
-    <main>
-      <section id="hero-header">
-        <h1>la crypto pour les nuls</h1>
-        <div id="content">
-          <p id="p-left">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            tempore molestias sint ex laboriosam iure ipsa ipsum,
-          </p>
-          <div>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              tempore molestias sint ex laboriosam iure ipsa ipsum,
-            </p>
-            <button class="info">En savoir plus...</button>
-          </div>
-        </div>
-      </section>
-
-      <section id="projet">Projet</section>
-
-      <section id="crypto"></section>
-
-      <section id="carrousel">
-        <div id="carrousel-container">
-          <div class="carrousel"></div>
-
-          <div id="carrousel-control">
-            <button id="prev">&#10094;</button>
-            <button id="next">&#10095;</button>
-          </div>
-        </div>
-        <div id="lightbox">
-          <span class="close"><i class="fas fa-x"></i></span>
-          <img src="" alt="" class="lightbox-content" id="lightbox-img" />
-        </div>
-      </section>
-
-      <section id="contact">Contact</section>
-    </main>
-    <i class="fas fa-arrow-up" id="up-arrow"></i>
-    <div id="reseaux">
-      <a target="_blank"
-        ><i id="facebook" class="fab fa-facebook-square"></i
-      ></a>
-      <a><i id="linkedin" class="fab fa-linkedin"></i></a>
-      <a><i id="x" class="fas fa-brands fa-square-x-twitter"></i></a>
+<head>
+  <script
+    type="module"
+    src="<%= process.env.SITE_URL %>/assets/js/accueil.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="<%= process.env.SITE_URL %>/assets/styles/accueil.css"
+  />
+</head>
+<%- include('partials/header', {title:'accueil'})%>
+<header></header>
+<main>
+  <section id="hero-header">
+    <h1>la crypto pour les nuls</h1>
+    <div id="content">
+      <p id="p-left">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+        tempore molestias sint ex laboriosam iure ipsa ipsum,
+      </p>
+      <div>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+          tempore molestias sint ex laboriosam iure ipsa ipsum,
+        </p>
+        <button class="info">En savoir plus...</button>
+      </div>
     </div>
-    <div id="reseaux-mobile">
-      <a target="_blank"
-        ><i id="facebook" class="fab fa-facebook-square"></i
-      ></a>
-      <a><i id="linkedin" class="fab fa-linkedin"></i></a>
-      <a><i id="x" class="fas fa-brands fa-square-x-twitter"></i></a>
+  </section>
+
+  <section id="projet">Projet</section>
+
+  <section id="crypto"></section>
+
+  <section id="carrousel">
+    <div id="carrousel-container">
+      <div class="carrousel"></div>
+
+      <div id="carrousel-control">
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+      </div>
     </div>
-  </body>
-</html>
+    <div id="lightbox">
+      <span class="close"><i class="fas fa-x"></i></span>
+      <img src="" alt="" class="lightbox-content" id="lightbox-img" />
+    </div>
+  </section>
+</main>
+<%- include('partials/footer')%>
