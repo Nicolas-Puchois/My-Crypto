@@ -97,6 +97,15 @@ button.info:hover {
   cursor: pointer;
   display: none;
   mix-blend-mode: exclusion;
+  #up-arrow.mobile {
+    position: relative;
+    right: inherit;
+    bottom: inherit;
+    width: 2rem;
+    backdrop-filter: inherit;
+    background-color: transparent;
+    border-radius: inherit;
+  }
 }
 
 main {
