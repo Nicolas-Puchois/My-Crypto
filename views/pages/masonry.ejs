@@ -1,0 +1,29 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="<%= process.env.SITE_URL %>/assets/styles/masonry.css"
+  />
+  <script
+    type="module"
+    src="<%= process.env.SITE_URL %>/assets/js/masonry/masonry.js"
+  ></script>
+</head>
+
+<%- include('../partials/header', {title:'gallerie'})%>
+
+<main>
+  <h1>gallerie</h1>
+  <ul class="masonry-grid">
+    <% games.forEach((game) => { %>
+    <li class="masonry-items">
+      <img src="<%=game.background_image %>" alt="<%=game.name%>" />
+      <% }) %>
+    </li>
+  </ul>
+  <div id="lightbox">
+    <span><i class="fas fa-x close"></i></span>
+    <img src="" alt="" class="lightbox-content" id="lightbox-img" />
+  </div>
+</main>
+
+<%- include('../partials/footer')%>

@@ -1,7 +1,7 @@
-import { fetchData } from "./public/assets/js/lib/functions.js";
 const express = require("express");
 const path = require("path");
 const app = express();
+const { fetchData } = require("./public/assets/js/lib/functions.js");
 
 require("dotenv").config();
 app.set("view engine", "ejs");
@@ -16,21 +16,33 @@ app.get("/contact", (req, res) => {
   res.render("pages/contact");
 });
 
-const images = fetchData({
-  route:
-    "/games?key=de462d1e145d44e084148f017bf5976d&dates=2019-09-01,2019-09-30&platforms=18,1,7",
+// app.get("/masonry", (req, res) => {
+//   res.render("pages/masonry");
+// });
+
+const games = fetchData({
+  api: "https://api.rawg.io/api",
+  route: "/games",
+  options: {
+    params: {
+      key: process.env.RAWGIO_APIKEY,
+      dates: "2012-09-01,2015-09-30",
+      plateforms: "18,1,7",
+      genres: "actions,massively-multiplayer",
+    },
+  },
 }).then((data) => {
-  return data.result;
+  return data.results;
 });
 
 app.get("/masonry", async (req, res) => {
   try {
-    const imageData = await images;
-    res.render("pages/masonry", { images: imageData });
-    console.log(imageData);
+    const gameData = await games;
+    // console.log(gameData);
+    res.render("pages/masonry", { games: gameData });
   } catch (err) {
     console.log(err);
-    res.render("pages/masonry", { images: [] });
+    res.render("pages/masonry", { games: [] });
   }
 });
 

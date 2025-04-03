@@ -14,7 +14,8 @@ function scrollToTop() {
   //   console.log(heroHeader.offsetHeight);
 
   window.addEventListener("scroll", () => {
-    if (scrollY >= heroHeader.offsetHeight) {
+    const height = heroHeader ? heroHeader.offsetHeight : 200;
+    if (scrollY >= height) {
       scrollToTopButton.style.display = "block";
     } else if (scrollY == 0) {
       scrollToTopButton.style.display = "none";

@@ -1,10 +1,18 @@
 import { fetchData } from "../lib/functions.js";
+
+// /games?key=de462d1e145d44e084148f017bf5976d&dates=2019-09-01,2019-09-30&platforms=18,1,7
 window.addEventListener("DOMContentLoaded", () => {
   let loading = true;
   let tabGames = [];
   fetchData({
-    route:
-      "/games?key=de462d1e145d44e084148f017bf5976d&dates=2019-09-01,2019-09-30&platforms=18,1,7",
+    route: "/games",
+    options: {
+      params: {
+        key: "de462d1e145d44e084148f017bf5976d",
+        dates: "2019-09-01,2019-09-30",
+        plateforms: "18,1,7",
+      },
+    },
   })
     .then((data) => {
       return data.results;
