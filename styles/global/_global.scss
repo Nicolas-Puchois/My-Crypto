@@ -88,7 +88,9 @@ button.info:hover {
   color: blue;
   background: white;
 }
-
+textarea {
+  resize: none;
+}
 #up-arrow {
   position: fixed;
   right: 1rem;
