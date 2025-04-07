@@ -39,6 +39,14 @@ function initMobileMenu() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll("#nav a");
+  const currentPage = window.location.pathname.split("/").pop();
+  links.forEach((link) => {
+    const href = link.getAttribute("href").replace(/^\/+/, "");
+    if (href === currentPage) {
+      link.classList.add("active"); // Ajouter la classe active
+    }
+  });
   initMobileMenu();
   window.addEventListener("resize", initMobileMenu);
   window.addEventListener("resize", closeMenu);

@@ -1,3 +1,5 @@
+import { fetchData } from "../lib/functions.js";
+
 // tous les champs
 const form = document.querySelector("#form-contact");
 const formNameInput = document.querySelector("#name");
@@ -96,4 +98,69 @@ formMessageInput.addEventListener("blur", () => {
     errorMessage,
     "Le message doit comporter au moins 10 caractères."
   );
+});
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  // Validation finale avant envoi
+  const isNameValid = validateField(
+    formNameInput,
+    nameRegex,
+    errorName,
+    "Veuillez entrer un nom valide (minimum 2 caractères, lettres et espaces uniquement)."
+  );
+  const isEmailValid = validateField(
+    formEmailInput,
+    emailRegex,
+    errorEmail,
+    "Veuillez entrer une adresse email valide."
+  );
+  const isSubjectValid = validateLength(
+    formSubjectInput,
+    3,
+    errorSubject,
+    "Le sujet doit comporter au moins 3 caractères."
+  );
+  const isMessageValid = validateLength(
+    formMessageInput,
+    10,
+    errorMessage,
+    "Le message doit comporter au moins 10 caractères."
+  );
+  if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
+    return;
+  }
+
+  const formData = {
+    name: formNameInput.value.trim(),
+    email: formEmailInput.value.trim(),
+    subject: formSubjectInput.value.trim(),
+    message: formMessageInput.value.trim(),
+  };
+  // console.log("FormData : ", formData);
+
+  // INFO: envoie du message ...
+  try {
+    const result = await fetchData({
+      route: "/contact",
+      api: "",
+      options: {
+        method: "POST", // obligatoire si pas "GET"
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      },
+    });
+    responseMessage.innerHTML = `<div class="alert success">${result.message}</div>`;
+    form.reset();
+    document
+      .querySelectorAll(".validation-icon")
+      .forEach((icon) => (icon.className = "validation-icon"));
+  } catch (error) {
+    responseMessage.innerHTML = `<div class="alert error"> Une erreur est survenue lors de l'envoie du formulaire </div>`;
+    console.log(error);
+  }
+
+  // console.log(e);
 });

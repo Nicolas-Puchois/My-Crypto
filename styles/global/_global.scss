@@ -62,8 +62,11 @@ a:not(#logo a, #reseaux a, #reseaux-mobile a):after {
 a:not(#logo a, #reseaux a, #reseaux-mobile a):hover {
   color: blue;
 }
-a:not(#logo a, #reseaux a, #reseaux-mobile a):hover:after {
+
+a:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):hover:after,
+a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
   transform: scaleX(1);
+  bottom: -2px;
 }
 
 button {
